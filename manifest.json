@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "name": "Web Highlighter",
+    "description": "Extension that allow you to highlight texts within a web page",
+    "version": "1.0",
+    "permissions": [
+        "scripting",
+        "activeTab"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {}
+}
