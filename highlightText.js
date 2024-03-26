@@ -1,7 +1,19 @@
+const getSelectedText = () => {
+    let selectedText = ''
+
+    if(window.getSelection) {
+        selectedText = window.getSelection()
+        console.log("window.getSelection", selectedText)
+    } 
+
+    return selectedText
+}
+
 const highlightSelectedText = (event) => {
     event.preventDefault()
-    console.log("event listener")
+    // TODO stop using event.target as this highlights the entire element
     event.target.style.backgroundColor = "yellow"
+    const selectedText = getSelectedText()
 }
 
 console.log('highlightText')
