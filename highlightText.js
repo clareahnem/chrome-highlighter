@@ -1,9 +1,16 @@
 const getSelectedText = () => {
     let selectedText = ''
 
-    if(window.getSelection) {
-        selectedText = window.getSelection()
-        console.log("window.getSelection", selectedText)
+    if(document.getSelection) {
+        selectedText = document.getSelection()
+        let range = selectedText.getRangeAt(0).cloneRange()
+
+        const newSpan = document.createElement('span')
+        newSpan.className = 'highlight'
+        range.surroundContents(newSpan)
+        selectedText.removeAllRanges()
+        selectedText.addRange(range)
+        console.log("extractContents", `${selectedText}`)
     } 
 
     return selectedText
@@ -11,10 +18,7 @@ const getSelectedText = () => {
 
 const highlightSelectedText = (event) => {
     event.preventDefault()
-    // TODO stop using event.target as this highlights the entire element
-    event.target.style.backgroundColor = "yellow"
-    const selectedText = getSelectedText()
+    getSelectedText()
 }
 
-console.log('highlightText')
 document.body.addEventListener('mouseup', highlightSelectedText)

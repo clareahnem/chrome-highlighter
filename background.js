@@ -23,5 +23,9 @@ chrome.action.onClicked.addListener(async (tab) => {
             files: ['highlightText.js'],
             target: { tabId: tab.id }
         });
+        await chrome.scripting.insertCSS({
+            files: ['styles.css'],
+            target: { tabId: tab.id }
+        })
     }
 });
