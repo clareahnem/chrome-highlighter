@@ -10,5 +10,10 @@
     "background": {
         "service_worker": "background.js"
     },
-    "action": {}
+    "action": {},
+    "icons": {
+        "16": "icons/highlighter16.png",
+        "48": "icons/highlighter48.png",
+        "128": "icons/highlighter128.png"
+    }
 }
