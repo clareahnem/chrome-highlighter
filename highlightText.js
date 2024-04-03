@@ -9,15 +9,15 @@ const highlightSelectedText = (event) => {
             // wrap with span only if there are text highlighted
             const selectedTextLength = range.endOffset - range.startOffset
             const hasNestedElements = range.commonAncestorContainer.childNodes.length > 0 ? true : false
+            console.log('hasNestedElements?', hasNestedElements)
             const hasTextToHighlight = selectedTextLength > 0 ? true : hasNestedElements
             if(hasTextToHighlight) {
-                console.log(range)
                 const newSpan = document.createElement('span')
                 newSpan.className = 'highlight'
-                // range.extractContents() removes selected text out of DOM. 
-                // We wrap the extracted content in <span> and then insert it back to DOM
-                newSpan.appendChild(range.extractContents())
-                range.insertNode(newSpan)
+                range.surroundContents(newSpan)
+
+                selectedText.removeAllRanges()
+                selectedText.addRange(range)
             }
         } catch(e) {
             console.error('sorry, we cannot highlight non text values!', e)
