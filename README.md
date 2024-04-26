@@ -27,19 +27,19 @@ This extension is yet to be published. To use this extension on your local machi
 **WHEN** I drag my mouse over another piece of text on the same page\
 **THEN** I should see the existing highlighted text and the next text both highlighted
 
+**GIVEN** Web page includes content that is not simple text amongst simple text\
+**WHEN** I drag over simple text as well as non-text content\
+**THEN** I should be able to see the simple text part that I dragged over being highlighted
+
 <u>Incomplete stories</u>
 
 **GIVEN** I have highlighted text on the page\
 **WHEN** I drag over the highlighted text again\
 **THEN** I should see the text no longer being highlighted
 
-**GIVEN** web page includes content that is not simple text
-**WHEN** I drag over this content
+**GIVEN** web page includes content that is not simple text\
+**WHEN** I drag over this content\
 **THEN** I should not encounter any errors in the background
-
-**GIVEN** Web page includes content that is not simple text amongst simple text
-**WHEN** I drag over simple text as well as non-text content
-**THEN** I should be able to see the simple text part that I dragged over being highlighted
 
 
 
